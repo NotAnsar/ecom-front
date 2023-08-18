@@ -1,0 +1,106 @@
+header {
+	padding: 0 1rem;
+	// background-color: var(--bg-color);
+	background-color: var(--dark-bg-color);
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	// border-bottom: #212121 1px solid;
+	.container {
+		color: inherit;
+		max-width: var(--max-width);
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	li {
+		color: #fff;
+		cursor: pointer;
+		letter-spacing: 1px;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+	@media screen and (max-width: 500px) {
+		.mobileOnly {
+			display: flex;
+		}
+		.laptopOnly {
+			display: none;
+		}
+	}
+	@media screen and (min-width: 500px) {
+		.mobileOnly {
+			display: none;
+		}
+	}
+
+	li {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 0.75rem;
+
+		svg {
+			stroke-width: 1.75;
+			height: 1.3rem;
+			width: 1.3rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+
+	ul {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		color: var(--light-text-color);
+		ul {
+			margin-left: 1.5rem;
+			color: inherit;
+		}
+		h1 {
+			margin: 0.8rem 0;
+			font-weight: 500;
+			color: inherit;
+		}
+	}
+	a {
+		font-size: 0.95rem;
+		color: inherit;
+	}
+}
+
+.heartContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+.notification {
+	width: 0.6rem;
+	height: 0.6rem;
+	background-color: #ff4f33;
+	background-color: var(--light-text-color);
+
+	border-radius: 50%;
+	position: absolute;
+	font-size: 12px;
+	font-weight: 400;
+	color: #fff;
+	top: -3px;
+	right: -6px;
+	border: var(--dark-bg-color) 2px solid;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

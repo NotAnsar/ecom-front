@@ -1,0 +1,60 @@
+.container {
+	max-width: 1200px;
+	margin: 2.5rem auto;
+	padding: 0 1rem;
+}
+
+.stepContainer {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	color: #b4b4b4;
+	font-weight: 500;
+	padding-bottom: 1.5rem;
+
+	@media screen and (max-width: 350px) {
+		font-size: 0.9rem;
+	}
+	.selected {
+		h2 {
+			font-size: 1.75rem;
+			font-weight: 500;
+		}
+		color: var(--dark-bg-color);
+	}
+
+	.steptwo {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		span {
+			font-size: 1.2rem;
+		}
+	}
+	@media screen and (max-width: 450px) {
+		display: unset;
+		.steptwo {
+			span {
+				font-size: 1rem;
+			}
+		}
+	}
+
+	border-bottom: 1px solid #ededed;
+	svg {
+		stroke-width: 1.4;
+		width: 1rem;
+		height: 1rem;
+		transform: rotate(90deg);
+	}
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: 3fr 2fr;
+	@media screen and (max-width: 700px) {
+		grid-template-columns: 1fr;
+	}
+	gap: 1rem;
+	padding: 2rem 0;
+}
