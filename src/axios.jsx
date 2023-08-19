@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const url = import.meta.env.VITE_BACKEND_URL;
+import url from './store/url';
 
 export const makeRequest = axios.create({
 	withCredentials: true,
