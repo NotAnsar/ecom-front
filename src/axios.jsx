@@ -6,5 +6,3 @@ export const makeRequest = axios.create({
 	baseURL: url,
 	headers: {},
 });
-
-export default url;

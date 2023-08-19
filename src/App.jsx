@@ -20,14 +20,16 @@ import { Payement } from './pages/Payement';
 import Dashboard from './pages/Dashboard';
 import { OrderConfirm } from './pages/OrderConfirm';
 import { makeRequest } from './axios';
+import url from './store/url';
 
 function App() {
 	const dispatch = useDispatch();
 	const { cart } = useSelector((state) => state.storageSlice);
 	const { token, user } = useSelector((state) => state.auth);
 	makeRequest.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-
 	const { checkoutDone } = useSelector((state) => state.wishCard);
+
+	console.log(url);
 
 	useEffect(() => {
 		dispatch(fetchData());
