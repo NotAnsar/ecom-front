@@ -64,6 +64,10 @@ const OrderItem = () => {
 								src={`http://localhost:3000/images/${o.image}`}
 								alt={o.name}
 							/>
+							<img
+								src={'/images/' + encodeURIComponent(p.product.image[0])}
+								alt={p.product.name}
+							/>
 						</div>
 						<div>{o.name}</div>
 						<div>{categories && find(o.categorie_id, 'h')}</div>

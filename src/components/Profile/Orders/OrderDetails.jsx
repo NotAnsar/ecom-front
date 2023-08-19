@@ -73,8 +73,12 @@ const OrderDetails = () => {
 						{order.products.map((p) => (
 							<div key={p._id} className={classes.productContainer}>
 								<div className={classes.product}>
-									<img
+									{/* <img
 										src={`http://localhost:3000/images/${p?.product.image[0]}`}
+									/> */}
+									<img
+										src={'/images/' + encodeURIComponent(p.product.image[0])}
+										alt={p.product.name}
 									/>
 									<div className={classes.productInfo}>
 										<div className={classes.top}>

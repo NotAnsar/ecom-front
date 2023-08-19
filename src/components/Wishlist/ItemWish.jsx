@@ -13,7 +13,8 @@ const Item = ({ id, image, name, price }) => {
 		<div className={classes.itemContainer}>
 			<div className={classes.item}>
 				<Link to={`product/${id}`}>
-					<img src={`http://localhost:3000/images/${image}`} alt={name} />
+					{/* <img src={`http://localhost:3000/images/${image}`} alt={name} /> */}
+					<img src={'/images/' + encodeURIComponent(image)} alt={name} />
 				</Link>
 
 				<div>

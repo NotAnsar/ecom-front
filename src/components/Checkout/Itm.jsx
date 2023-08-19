@@ -5,7 +5,8 @@ const Itm = ({ id, image, name, price, qte, brand, categorie }) => {
 	return (
 		<div className={classes.itemContainer}>
 			<div className={classes.item}>
-				<img src={`http://localhost:3000/images/${image}`} alt={name} />
+				{/* <img src={`http://localhost:3000/images/${image}`} alt={name} /> */}
+				<img src={'/images/' + encodeURIComponent(image)} alt={name} />
 				<div>
 					<h2>{name}</h2>
 					<p>

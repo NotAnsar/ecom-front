@@ -22,8 +22,12 @@ const ProductPage = ({ data }) => {
 		<div className={classes.container}>
 			<div className={classes.grid}>
 				<div className={classes.img}>
-					<img
+					{/* <img
 						src={`http://localhost:3000/images/${data.image}`}
+						alt={data.name}
+					/> */}
+					<img
+						src={'/images/' + encodeURIComponent(data.image)}
 						alt={data.name}
 					/>
 				</div>

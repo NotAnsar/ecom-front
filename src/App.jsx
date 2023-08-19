@@ -55,6 +55,9 @@ function App() {
 						<Route path='/login' element={<LoginPage />} />
 						<Route path='/register' element={<RegisterPage />} />
 						<Route path='/profile' element={<Navigate to='/login' />} />
+						{cart.length > 0 && (
+							<Route path='/checkout' element={<Navigate to='/login' />} />
+						)}
 					</>
 				)}
 
@@ -73,6 +76,7 @@ function App() {
 					<>
 						<Route path='/dashboard/*' element={<Dashboard />} />
 						<Route path='/login' element={<Navigate to='/dashboard' />} />
+						<Route path='/register' element={<Navigate to='/dashboard' />} />
 					</>
 				)}
 

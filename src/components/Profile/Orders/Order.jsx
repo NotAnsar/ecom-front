@@ -23,9 +23,14 @@ const Order = ({ order }) => {
 
 			<div className={classes.imgs}>
 				{order.products.slice(0, 3).map((p) => (
+					// <img
+					// 	key={p._id}
+					// 	src={`http://localhost:3000/images/${p.product.image[0]}`}
+					// />
 					<img
 						key={p._id}
-						src={`http://localhost:3000/images/${p.product.image[0]}`}
+						src={'/images/' + encodeURIComponent(p.product.image[0])}
+						alt={p.product.name}
 					/>
 				))}
 			</div>

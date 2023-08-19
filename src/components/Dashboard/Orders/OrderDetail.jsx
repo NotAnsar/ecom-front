@@ -61,8 +61,12 @@ const OrderDetail = () => {
 				{ordersItem.map((o, i) => (
 					<div key={o.order_id + i} className={classes.orderItem}>
 						<div>
-							<img
+							{/* <img
 								src={`http://localhost:3000/images/${o.image}`}
+								alt={o.name}
+							/> */}
+							<img
+								src={'/images/' + encodeURIComponent(o.image)}
 								alt={o.name}
 							/>
 						</div>
