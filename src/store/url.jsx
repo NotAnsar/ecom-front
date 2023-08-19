@@ -1,2 +1,4 @@
-const url = 'https://ecom-jeys0fsvs-notansar.vercel.app/api/v1';
+const url = import.meta.env.VITE_BACKEND_URL;
+console.log(url);
+
 export default url;
