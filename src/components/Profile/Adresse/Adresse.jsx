@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import classes from '../Profile.module.scss';
-import MyAdress from './myAdress';
+
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Error from '../../Authentication/Error';
 import { useSelector } from 'react-redux';
+import MyAdress from './MyAdress';
 
 const Adresse = () => {
 	const { user } = useSelector((state) => state.auth);

@@ -354,8 +354,9 @@ input[type='submit'] {
 				height: 130px;
 				width: auto; // to maintain aspect ratio. You can use 100% if you don't care about that
 			}
+
 			.productInfo {
-				height: 130px;
+				// height: 130px;
 				display: flex;
 				flex-direction: column;
 				align-items: flex-start; /* Align items at the start (top) of the flex container */
@@ -379,6 +380,9 @@ input[type='submit'] {
 					}
 				}
 			}
+			@media screen and (max-width: 580px) {
+				display: unset;
+			}
 		}
 		.quantity,
 		.price {
@@ -397,6 +401,10 @@ input[type='submit'] {
 	align-items: center;
 	justify-content: space-between;
 	gap: 0.75rem;
+	@media screen and (max-width: 580px) {
+		display: grid;
+	}
+
 	span {
 		font-weight: 500;
 		color: #666;
