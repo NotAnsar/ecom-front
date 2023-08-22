@@ -12,25 +12,26 @@ import { makeRequest } from '../../axios';
 import { setCheckoutDone } from '../../store/wishListSlice';
 import { clearCarts } from '../../store/cartSlice';
 import { useNavigate } from 'react-router-dom';
-const NewCheckoutForm = () => {
-	const { user } = useSelector((state) => state.auth);
-	const [newAdress, setnewAdress] = useState(user?.adresse?.length === 0);
-	const dispatch = useDispatch();
-	const [error, setError] = useState(false);
-	const { cart } = useSelector((state) => state.storageSlice);
-	const navigate = useNavigate();
-	const [userData, setUserData] = useState({
-		email: user.email,
-		firstName: user.firstName,
-		lastName: user.lastName,
-		tel: user.tel,
-	});
+
+const NewCheckoutForm = ({ setStepOneDone }) => {
 	const [adresseData, setadresseData] = useState({
 		city: '',
 		adress: '',
 		country: '',
 		zipCode: '',
 	});
+	const { user } = useSelector((state) => state.auth);
+	const [newAdress, setnewAdress] = useState(user?.adresse?.length === 0);
+	const dispatch = useDispatch();
+	const [error, setError] = useState(false);
+
+	const [userData, setUserData] = useState({
+		email: user.email,
+		firstName: user.firstName,
+		lastName: user.lastName,
+		tel: user.tel,
+	});
+
 	const [checked, setChecked] = useState('');
 
 	const handleAddressChange = (event) => {
@@ -47,8 +48,8 @@ const NewCheckoutForm = () => {
 
 		setUserData((prev) => ({ ...prev, [name]: value }));
 	};
+
 	const getOrderAddress = () => {
-		console.log(newAdress);
 		if (newAdress) {
 			if (
 				!adresseData.adress ||
@@ -104,6 +105,7 @@ const NewCheckoutForm = () => {
 
 		return true; // No details changed
 	};
+
 	const formHandler = async (e) => {
 		e.preventDefault();
 		// 1. Update User Information
@@ -114,22 +116,9 @@ const NewCheckoutForm = () => {
 		const adresse = getOrderAddress();
 		if (adresse === null) return; // Don't proceed if there's an invalid address
 
-		// 3. Get products from the cart
-		const products = cart.map((c) => ({ product: c._id, quantity: c.qte }));
-
 		// do the request
 		console.log('done');
-		try {
-			const res = await makeRequest.post('/order', { adresse, products });
-			console.log(res.data);
-			console.log(res.data.data._id);
-			dispatch(setCheckoutDone());
-			dispatch(clearCarts());
-			navigate('/order-confirmation', { state: { id: res.data.data._id } });
-		} catch (error) {
-			console.log(error);
-			setError(error?.response?.data?.message || 'Server Error');
-		}
+		setStepOneDone(adresse);
 	};
 	return (
 		<div>
@@ -178,7 +167,7 @@ const NewCheckoutForm = () => {
 					</div>
 				)}
 
-				<input type='submit' value='CONFIRM ORDER' />
+				<input type='submit' value='PROCEED TO PAYMENT' />
 			</form>
 		</div>
 	);

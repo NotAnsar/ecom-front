@@ -1,19 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { IoIosArrowUp } from 'react-icons/io';
 
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-
 import classes from './Checkout.module.scss';
-import CheckoutForm from './CheckoutForm';
-import PayementForm from './PayementForm';
+
 import Summary from './Summary';
 
 import NewCheckoutForm from './NewCheckoutForm';
 import NewPaymentForm from './NewPaymentForm';
+import { useDispatch, useSelector } from 'react-redux';
+import { disableCart } from '../../store/wishListSlice';
 
 const Checkout = () => {
+	const [stepOneDone, setStepOneDone] = useState(false);
+	const dispatch = useDispatch();
+	const { cart } = useSelector((state) => state.storageSlice);
+
+	const [checkoutdata, setCheckoutdata] = useState({
+		products: null,
+		adresse: null,
+	});
+
+	function stepOneisDone(adresse) {
+		const products = cart.map((c) => ({ product: c._id, quantity: c.qte }));
+
+		setCheckoutdata((prevData) => ({
+			...prevData,
+			products,
+			adresse: adresse,
+		}));
+
+		dispatch(disableCart());
+
+		setStepOneDone(true);
+	}
+
 	return (
 		<div className={classes.container}>
 			<div className={classes.stepContainer}>
@@ -22,12 +43,15 @@ const Checkout = () => {
 				</span>
 				<div className={`${classes.steptwo} ${classes.selected}`}>
 					<IoIosArrowUp />
-					<span>1. Details</span>
-					{/* <span>2. Payement</span> */}
+					{stepOneDone ? <span>2. Payement</span> : <span>1. Details</span>}
 				</div>
 			</div>
 			<div className={classes.grid}>
-				<NewCheckoutForm />
+				{stepOneDone ? (
+					<NewPaymentForm checkoutdata={checkoutdata} />
+				) : (
+					<NewCheckoutForm setStepOneDone={stepOneisDone} />
+				)}
 
 				<div>
 					<Summary />

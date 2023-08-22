@@ -24,7 +24,7 @@ export const Orders = () => {
 				const res = await makeRequest.get(
 					`/order?page=${page.currentPage}&limit=3`
 				);
-				console.log(res.data);
+
 				setPage(res.data.page);
 				setOrders(res.data.data);
 				setLoading(false);
@@ -33,10 +33,6 @@ export const Orders = () => {
 				setLoading(false);
 			}
 		}
-	}, [page.currentPage]);
-
-	useEffect(() => {
-		console.log(page.currentPage);
 	}, [page.currentPage]);
 
 	return (

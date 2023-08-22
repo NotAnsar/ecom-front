@@ -46,7 +46,6 @@ export const cartStorageSlice = createSlice({
 			localStorage.setItem('wish', JSON.stringify(state.wish));
 		},
 		addCart: (state, action) => {
-			console.log(action.payload);
 			const existingItem = state.cart.find(
 				(item) => item._id === action.payload._id
 			);

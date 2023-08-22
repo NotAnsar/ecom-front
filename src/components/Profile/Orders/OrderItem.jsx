@@ -65,8 +65,8 @@ const OrderItem = () => {
 								alt={o.name}
 							/>
 							<img
-								src={'/images/' + encodeURIComponent(p.product.image[0])}
-								alt={p.product.name}
+								src={'/images/' + encodeURIComponent(o.image)}
+								alt={o.name}
 							/>
 						</div>
 						<div>{o.name}</div>

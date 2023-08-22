@@ -22,14 +22,16 @@ import { OrderConfirm } from './pages/OrderConfirm';
 import { makeRequest } from './axios';
 import url from './store/url';
 
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE);
 function App() {
 	const dispatch = useDispatch();
 	const { cart } = useSelector((state) => state.storageSlice);
 	const { token, user } = useSelector((state) => state.auth);
 	makeRequest.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 	const { checkoutDone } = useSelector((state) => state.wishCard);
-
-	console.log(url);
 
 	useEffect(() => {
 		dispatch(fetchData());
@@ -67,7 +69,14 @@ function App() {
 						<Route path='/login' element={<Navigate to='/profile' />} />
 						<Route path='/register' element={<Navigate to='/profile' />} />
 						{cart.length > 0 && (
-							<Route path='/checkout' element={<CheckOut />} />
+							<Route
+								path='/checkout'
+								element={
+									<Elements stripe={stripePromise}>
+										<CheckOut />
+									</Elements>
+								}
+							/>
 						)}
 					</>
 				)}

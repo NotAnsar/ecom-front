@@ -2,7 +2,6 @@ import React from 'react';
 import classes from '../Profile/Profile.module.scss';
 
 const DeliveryDetails = ({ handleAddressChange, adresseData }) => {
-	console.log(adresseData);
 	return (
 		<>
 			<div className={classes.inputSplit2}>

@@ -26,7 +26,7 @@ const Register = () => {
 	};
 	const formHandler = (e) => {
 		e.preventDefault();
-		console.log(formData);
+
 		if (
 			!formData.email.includes('@') ||
 			!formData.password.length > 6 ||
