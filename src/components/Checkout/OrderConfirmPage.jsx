@@ -31,7 +31,7 @@ export const OrderConfirmPage = () => {
 					{` ${from} `}And {` ${to} `}. You will be able to pay for your order
 					once it arrives to the selected Adresse.
 				</p>
-				<Link to='/' className='button'>
+				<Link to='/' replace className='button'>
 					Go Back To Home Page
 				</Link>
 			</div>
