@@ -77,7 +77,7 @@ const OrderDetails = () => {
 										src={`http://localhost:3000/images/${p?.product.image}`}
 									/> */}
 									<img
-										src={'/images/' + encodeURIComponent(p.product.image)}
+										src={'/images/' + encodeURIComponent(p.product?.image)}
 										alt={p.product.name}
 									/>
 									<div className={classes.productInfo}>

@@ -29,7 +29,7 @@ const Order = ({ order }) => {
 					// />
 					<img
 						key={p._id}
-						src={'/images/' + encodeURIComponent(p.product.image)}
+						src={'/images/' + encodeURIComponent(p.product?.image)}
 						alt={p.product.name}
 					/>
 				))}
