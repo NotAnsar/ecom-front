@@ -69,14 +69,14 @@ const NewProfile = () => {
 						>
 							<Link to='adresses'>Adresses</Link>
 						</li>
-						<li
+						{/* <li
 							className={`${
 								location.pathname.split('/')[2] === 'payments' &&
 								classes.clicked
 							}`}
 						>
 							<Link to='payments'>Payments</Link>
-						</li>
+						</li> */}
 					</ul>
 				</nav>
 

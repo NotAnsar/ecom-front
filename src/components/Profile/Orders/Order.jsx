@@ -4,6 +4,7 @@ import classes from '../Profile.module.scss';
 import { Link } from 'react-router-dom';
 
 const Order = ({ order }) => {
+	console.log(order);
 	return (
 		<div className={classes.order}>
 			<div className={classes.orderDetails}>

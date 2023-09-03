@@ -7,8 +7,8 @@ import classes from '../Dashboard/DashboardPage.module.scss';
 import Adresse from './Adresse';
 
 import LeftNav from './LeftNav';
-import MyOrders from './MyOrders';
-import OrderItem from './OrderItem';
+import MyOrders from './Orders/MyOrders';
+import OrderItem from './Orders/OrderItem';
 import { ProfileInfo } from './ProfileInfo';
 
 const ProfilePage = () => {

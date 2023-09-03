@@ -25,6 +25,7 @@ export const Orders = () => {
 					`/order?page=${page.currentPage}&limit=3`
 				);
 
+				console.log(res.data.data);
 				setPage(res.data.page);
 				setOrders(res.data.data);
 				setLoading(false);

@@ -16,7 +16,6 @@ const MyOrders = () => {
 			try {
 				const res = await makeRequest.get('/order?page=1&limit=3');
 
-				console.log(res.data);
 				setorders(data);
 			} catch (error) {
 				console.log(error);
