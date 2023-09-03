@@ -74,10 +74,10 @@ const OrderDetails = () => {
 							<div key={p._id} className={classes.productContainer}>
 								<div className={classes.product}>
 									{/* <img
-										src={`http://localhost:3000/images/${p?.product.image[0]}`}
+										src={`http://localhost:3000/images/${p?.product.image}`}
 									/> */}
 									<img
-										src={'/images/' + encodeURIComponent(p.product.image[0])}
+										src={'/images/' + encodeURIComponent(p.product.image)}
 										alt={p.product.name}
 									/>
 									<div className={classes.productInfo}>
